@@ -40,4 +40,5 @@ export interface ManagerConfig {
   logLevel: LogLevel;
   postLogConfig?: PostLogConfig;
   simulcastEnabled?: boolean;
+  spectator?: boolean
 }

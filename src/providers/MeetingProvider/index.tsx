@@ -22,6 +22,7 @@ interface Props {
   postLogConfig?: PostLogConfig;
   /** Whether or not to enable simulcast for the meeting session */
   simulcastEnabled?: boolean;
+  spectator?: boolean;
 }
 
 export const MeetingContext = createContext<MeetingManager | null>(null);
@@ -31,9 +32,10 @@ export const MeetingProvider: React.FC<Props> = ({
   postLogConfig,
   simulcastEnabled = false,
   children,
+  spectator = false,
 }) => {
   const [meetingManager] = useState(
-    () => new MeetingManager({ logLevel, postLogConfig, simulcastEnabled })
+    () => new MeetingManager({ logLevel, postLogConfig, simulcastEnabled, spectator })
   );
 
   return (

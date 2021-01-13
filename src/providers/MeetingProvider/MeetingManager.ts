@@ -94,6 +94,8 @@ export class MeetingManager implements AudioVideoObserver {
 
   simulcastEnabled: boolean = false;
 
+  spectator: boolean = false;
+
   constructor(config: ManagerConfig) {
     this.logLevel = config.logLevel;
 
@@ -103,6 +105,10 @@ export class MeetingManager implements AudioVideoObserver {
 
     if (config.postLogConfig) {
       this.postLoggerConfig = config.postLogConfig;
+    }
+
+    if (config.spectator) {
+      this.spectator = config.spectator
     }
   }
 
@@ -178,7 +184,7 @@ export class MeetingManager implements AudioVideoObserver {
     configuration: MeetingSessionConfiguration
   ): Promise<any> {
     const logger = this.createLogger(configuration);
-    const deviceController = new DefaultDeviceController(logger);
+    const deviceController = new DefaultDeviceController(logger, {spectator: this.spectator});
 
     this.meetingSession = new DefaultMeetingSession(
       configuration,
