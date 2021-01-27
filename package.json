@@ -73,7 +73,7 @@
     "@types/testing-library__react": "^10.0.1",
     "@types/throttle-debounce": "^2.1.0",
     "add": "^2.0.6",
-    "amazon-chime-sdk-js": "file:amazon-chime-sdk-js-2.3.0.tgz",
+    "amazon-chime-sdk-js": "git://github.com/wix-incubator/amazon-chime-sdk-js.git#wix",
     "babel-loader": "^8.1.0",
     "css-loader": "^2.1.1",
     "jest": "^26.6.3",
