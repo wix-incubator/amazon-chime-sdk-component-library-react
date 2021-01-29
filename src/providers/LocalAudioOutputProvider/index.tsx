@@ -8,7 +8,7 @@ import React, {
   createContext,
   useMemo,
   useCallback,
-  useContext
+  useContext,
 } from 'react';
 import { LocalAudioOutputContextType } from '../../types';
 import { useAudioVideo } from '../AudioVideoProvider';
@@ -47,13 +47,13 @@ const LocalAudioOutputProvider: React.FC = ({ children }) => {
 
   const value = useMemo(() => ({ isAudioOn, toggleAudio }), [
     isAudioOn,
-    toggleAudio
+    toggleAudio,
   ]);
 
   return (
     <Context.Provider value={value}>
       {children}
-      <audio ref={audioRef} style={{ display: 'none' }} />
+      <audio id="wix-amazon-audio" ref={audioRef} style={{ display: 'none' }} />
     </Context.Provider>
   );
 };
